@@ -4,10 +4,14 @@
 // hint.
 
 fn main() {
-    let x: i32 = 10;
+    let x = 10;
     if x == 11 {
         println!("x is ten!");
-    } else {
+    }
+    else if x == 10 {
         println!("x is not ten!");
+    }
+    else {
+        println!("x is not 10 or 11!");
     }
 }

@@ -1,11 +1,8 @@
 // iterators4.rs
-//
-// Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a
-// hint.
-
-// I AM NOT DONE
+// Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.
 
 pub fn factorial(num: u64) -> u64 {
+    (1..=num).fold(1, |a, b| a * b)
     // Complete this function to return the factorial of num
     // Do not use:
     // - return

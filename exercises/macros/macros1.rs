@@ -1,9 +1,5 @@
 // macros1.rs
-//
-// Execute `rustlings hint macros1` or use the `hint` watch subcommand for a
-// hint.
-
-// I AM NOT DONE
+// Execute `rustlings hint macros1` or use the `hint` watch subcommand for a hint.
 
 macro_rules! my_macro {
     () => {
@@ -12,5 +8,5 @@ macro_rules! my_macro {
 }
 
 fn main() {
-    my_macro();
+    my_macro!();
 }

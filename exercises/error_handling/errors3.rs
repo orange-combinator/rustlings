@@ -18,12 +18,11 @@ fn main() -> Result<(), ParseIntError> {
 
     if cost > tokens {
         println!("You can't afford that many!");
-        Ok(())
     } else {
         tokens -= cost;
         println!("You now have {} tokens.", tokens);
-        Ok(())
     }
+    Ok(())
 }
 
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {

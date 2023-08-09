@@ -40,10 +40,31 @@ impl Default for Person {
 // If while parsing the age, something goes wrong, then return the default of
 // Person Otherwise, then return an instantiated Person object with the results
 
-// I AM NOT DONE
 
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        if s.len() == 0 || s.split(',').count() != 2 {
+            Person::default()
+        } else {
+            let mut split = s.split(',');
+            match split.next() {
+                Some(name) => {
+                    if name.len() == 0 {
+                        Person::default()
+                    } else {
+                        let ageResult = split.collect::<String>().parse::<usize>();
+                        match ageResult {
+                            Ok(age) => Person {
+                                            name: name.to_string(),
+                                            age: age,
+                            },
+                            Err(_) => Person::default()
+                        }
+                    }
+                },
+                None => Person::default()
+            }
+        }
     }
 }
 
@@ -137,4 +158,13 @@ mod tests {
         assert_eq!(p.name, "John");
         assert_eq!(p.age, 30);
     }
+
+    // // my extra test
+    // #[test]
+    // fn my_extra_test() {
+    //     let p: Person = Person::from("Mike,32,");
+    //     // assert_eq!(p.age, "42,".split(',').collect::<String>().parse::<usize>());
+    //     assert_eq!(p.age, "42,".parse::<usize>());
+    // }
+
 }
